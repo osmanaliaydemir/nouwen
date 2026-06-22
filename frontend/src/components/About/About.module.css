@@ -1,0 +1,31 @@
+.about {
+  position: relative;
+  text-align: center;
+  padding-top: clamp(24px, 4vw, 56px);
+}
+
+.aboutSpark {
+  display: block;
+  width: clamp(42px, 4.4vw, 62px);
+  height: auto;
+  margin: 0 auto clamp(26px, 4vw, 44px);
+  fill: var(--red);
+  transform: scale(0.82, 1.35);
+}
+
+.aboutTitle {
+  font-weight: 700;
+  font-size: clamp(30px, 4.2vw, 60px);
+  color: var(--blue);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.aboutText {
+  margin: clamp(20px, 3vw, 34px) auto 0;
+  max-width: clamp(320px, 80vw, 920px);
+  font-weight: 500;
+  font-size: clamp(15px, 1.6vw, 23px);
+  color: var(--blue-soft);
+  line-height: 1.7;
+}

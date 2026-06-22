@@ -1,0 +1,84 @@
+/* =========================================================
+   nouwen — self-hosted fonts (from the brand package)
+   ========================================================= */
+
+/* ---- Gilroy: primary geometric sans (hero, nav, headings) ---- */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../assets/fonts/Gilroy-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../assets/fonts/Gilroy-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../assets/fonts/Gilroy-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../assets/fonts/Gilroy-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../assets/fonts/Gilroy-Extrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../assets/fonts/Gilroy-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Noe Display: Didone serif — stand-in for CoFo Raffine ----
+   (used for the elegant serif headings & the "05") */
+@font-face {
+  font-family: 'Noe Display';
+  src: url('../assets/fonts/NoeDisplay-Medium.ttf') format('truetype');
+  font-weight: 500 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Alika: brand wordmark "nouwen" ---- */
+@font-face {
+  font-family: 'Alika';
+  src: url('../assets/fonts/Alika.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Channe: alternate display serif (logo candidate) ---- */
+@font-face {
+  font-family: 'Channe';
+  src: url('../assets/fonts/Channe.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Rajdhani: condensed accent ---- */
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('../assets/fonts/Rajdhani-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

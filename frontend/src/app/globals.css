@@ -1,0 +1,150 @@
+/* =========================================================
+   nouwen — global styles
+   Font faces, design tokens, reset, utilities
+   ========================================================= */
+
+/* ---- Gilroy ---- */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Extrabold.otf') format('opentype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/Gilroy-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Noe Display (Didone serif) ---- */
+@font-face {
+  font-family: 'Noe Display';
+  src: url('/fonts/NoeDisplay-Medium.ttf') format('truetype');
+  font-weight: 500 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Alika (brand wordmark) ---- */
+@font-face {
+  font-family: 'Alika';
+  src: url('/fonts/Alika.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Channe (alternate display serif) ---- */
+@font-face {
+  font-family: 'Channe';
+  src: url('/fonts/Channe.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---- Rajdhani (condensed accent) ---- */
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================================
+   Design Tokens
+   ========================================================= */
+:root {
+  /* Colors */
+  --blue:        #1a5fa8;
+  --blue-soft:   #4f93d6;
+  --ink:         #16457f;
+  --red:         #ee2f24;
+  --red-light:   #f4695e;
+  --pink-bg:     #fbe9e6;
+  --cream:       #f3efea;
+  --white:       #ffffff;
+
+  /* Typography */
+  --font-sans:  'Gilroy', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Noe Display', 'Playfair Display', Georgia, serif;
+  --font-logo:  'Alika', 'Noe Display', serif;
+
+  /* Layout */
+  --container:   1180px;
+  --gutter:      clamp(20px, 5vw, 60px);
+  --radius:      18px;
+}
+
+/* =========================================================
+   Reset
+   ========================================================= */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--blue);
+  background: var(--white);
+  line-height: 1.45;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; }
+
+/* =========================================================
+   Utility
+   ========================================================= */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

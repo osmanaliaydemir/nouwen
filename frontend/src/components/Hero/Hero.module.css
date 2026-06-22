@@ -1,0 +1,36 @@
+.hero {
+  padding-top: clamp(40px, 7vw, 80px);
+  position: relative;
+  z-index: 2;
+}
+
+.heroTitle {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.14em;
+  color: var(--blue);
+  font-weight: 500;
+  font-size: clamp(28px, 5.2vw, 56px);
+  line-height: 1.05;
+  letter-spacing: 0.015em;
+}
+
+.heroLine {
+  display: block;
+}
+
+.heroLineSerif {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.heroSubtitle {
+  margin: clamp(20px, 3vw, 34px) 0 0;
+  font-weight: 500;
+  font-size: clamp(13px, 1.5vw, 17px);
+  letter-spacing: 0.16em;
+  color: var(--blue);
+  line-height: 1.6;
+}

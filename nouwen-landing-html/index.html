@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nouwen — If not now, when?</title>
+  <meta name="description" content="Seul'den gelen deneyim dünyası. Kore Beauty, Photo Booth, Glam Area, Karaoke ve Yoort. Şimdi değilse ne zaman?" />
+
+  <!-- Fonts (self-hosted from brand package) -->
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- ============================== HEADER ============================== -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#">
+        <span class="brand__name">nouwen</span>
+        <span class="brand__tagline">If not now, when?</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Ana menü">
+        <ul class="main-nav__list">
+          <li><a href="#seulab">SEULAB</a></li>
+          <li class="nav-divider" aria-hidden="true"></li>
+          <li><a href="#photo-booth">PHOTO<br />BOOTH</a></li>
+          <li class="nav-divider" aria-hidden="true"></li>
+          <li><a href="#glam-area">GLAM<br />AREA</a></li>
+          <li><a href="#karaoke">KARAOKE</a></li>
+          <li><a href="#yoort">YOORT</a></li>
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Menüyü aç" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============================== HERO ============================== -->
+    <section class="hero container">
+      <h1 class="hero__title">
+        <span class="hero__line">BURADA PLAN YOK</span>
+        <span class="hero__line">SADECE TEK BİR SORU VAR:</span>
+        <span class="hero__line hero__line--serif">ŞİMDİ DEĞİLSE NE ZAMAN?</span>
+      </h1>
+      <p class="hero__subtitle">NOUWEN'İ KEŞFETMEYE<br />HAZIR MISIN?</p>
+    </section>
+
+    <!-- ============================== COUNTDOWN ============================== -->
+    <section class="countdown" id="countdown">
+      <!-- Decorations -->
+      <svg class="deco deco--burst deco--burst-left"  viewBox="0 0 100 100" aria-hidden="true"><use href="#burst" /></svg>
+      <svg class="deco deco--burst deco--burst-right" viewBox="0 0 100 100" aria-hidden="true"><use href="#burst" /></svg>
+      <svg class="deco deco--spark deco--spark-1" viewBox="0 0 100 100" aria-hidden="true"><use href="#spark" /></svg>
+      <svg class="deco deco--spark deco--spark-2" viewBox="0 0 100 100" aria-hidden="true"><use href="#spark" /></svg>
+      <svg class="deco deco--star  deco--star-1"  viewBox="0 0 100 100" aria-hidden="true"><use href="#star6" /></svg>
+      <svg class="deco deco--star  deco--star-2"  viewBox="0 0 100 100" aria-hidden="true"><use href="#star6" /></svg>
+
+      <!-- Flip clock: 2 columns × 2 rows = 4 cards -->
+      <div class="flip-clock" aria-label="Geri sayım: 05">
+        <div class="flip-clock__cards">
+          <div class="flip-clock__col flip-clock__col--left">
+            <span class="flip-clock__string" aria-hidden="true"></span>
+            <span class="flip-clock__pin" aria-hidden="true"></span>
+            <span class="flip-clock__card flip-clock__card--top"></span>
+            <span class="flip-clock__card flip-clock__card--bottom"></span>
+          </div>
+          <div class="flip-clock__col flip-clock__col--right">
+            <span class="flip-clock__string" aria-hidden="true"></span>
+            <span class="flip-clock__pin" aria-hidden="true"></span>
+            <span class="flip-clock__card flip-clock__card--top"></span>
+            <span class="flip-clock__card flip-clock__card--bottom"></span>
+          </div>
+        </div>
+        <div class="flip-clock__digits" id="countdown-value">05</div>
+      </div>
+
+      <h2 class="countdown__heading">GERİ SAYIM BAŞLADI!</h2>
+      <p class="countdown__text">
+        UNUTAMAYACAĞIN<br />
+        BİR DENEYİM<br />
+        ÇOK YAKINDA SENİNLE.
+      </p>
+    </section>
+
+    <!-- ============================== ABOUT ============================== -->
+    <section class="about container" id="about">
+      <svg class="about__spark" viewBox="0 0 100 100" aria-hidden="true"><use href="#spark" /></svg>
+      <h2 class="about__title">Nouwen Nedir?</h2>
+      <p class="about__text">
+        Seul'den gelen deneyim dünyası seni bekliyor.<br />
+        Burada eğlence adım attığın anda başlar. Cevaplaman gereken tek soru ise;<br />
+        Hangisinden başlıyoruz?
+      </p>
+    </section>
+
+    <!-- ============================== FEATURES / GALLERY ============================== -->
+    <section class="features" id="features">
+      <h2 class="features__title container">
+        NOUWEN'DE SENİ<br />NELER BEKLİYOR?
+      </h2>
+
+      <div class="showcase">
+        <!-- lighter red-carpet beam behind the feature card -->
+        <span class="showcase__beam" aria-hidden="true"></span>
+
+        <!-- gallery cards (drop real photos into assets/images/) -->
+        <div class="showcase__cards">
+          <figure class="card card--a" data-eyebrow="KORE BEAUTY" data-name="SEULAB"><span class="card__img" style="--img:url(assets/images/beauty.jpg)"></span></figure>
+          <figure class="card card--b" data-eyebrow="GLAM" data-name="GLAM AREA"><span class="card__img" style="--img:url(assets/images/people.jpg)"></span></figure>
+          <figure class="card card--feature" data-eyebrow="PHOTO" data-name="PHOTO BOOTH"><span class="card__img" style="--img:url(assets/images/photobooth.jpg)"></span></figure>
+          <figure class="card card--c" data-eyebrow="DESSERT" data-name="YOORT"><span class="card__img" style="--img:url(assets/images/yoort.jpg)"></span></figure>
+          <figure class="card card--d" data-eyebrow="EĞLENCE" data-name="KARAOKE"><span class="card__img" style="--img:url(assets/images/karaoke.jpg)"></span></figure>
+        </div>
+
+        <!-- red hill (bell curve — slim peak) -->
+        <svg class="showcase__hill" viewBox="0 0 1920 280" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,280 L0,210 C660,210 850,30 960,30 C1070,30 1260,210 1920,210 L1920,280 Z" />
+        </svg>
+
+        <!-- caption on the hill -->
+        <div class="showcase__caption">
+          <p class="showcase__eyebrow">KORE BEAUTY</p>
+          <p class="showcase__name" id="showcase-name">SEULAB</p>
+          <div class="showcase__viewall">
+            <button class="showcase__arrow showcase__arrow--prev" type="button" aria-label="Önceki">←</button>
+            <span class="showcase__viewall-label">VIEW ALL</span>
+            <button class="showcase__arrow showcase__arrow--next" type="button" aria-label="Sonraki">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer will be added once its screenshot is provided -->
+  </main>
+
+  <!-- ============================== SVG SPRITE (decorations) ============================== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <!-- 4-point sparkle -->
+      <symbol id="spark" viewBox="0 0 100 100">
+        <path d="M50 0 C54 32 68 46 100 50 C68 54 54 68 50 100 C46 68 32 54 0 50 C32 46 46 32 50 0 Z" />
+      </symbol>
+      <!-- thin needle firework burst (16-point) -->
+      <symbol id="burst" viewBox="0 0 100 100">
+        <path d="M50.00 2.00 L50.78 46.08 L68.37 5.65 L52.22 46.67 L83.94 16.06 L53.33 47.78 L94.35 31.63 L53.92 49.22 L98.00 50.00 L53.92 50.78 L94.35 68.37 L53.33 52.22 L83.94 83.94 L52.22 53.33 L68.37 94.35 L50.78 53.92 L50.00 98.00 L49.22 53.92 L31.63 94.35 L47.78 53.33 L16.06 83.94 L46.67 52.22 L5.65 68.37 L46.08 50.78 L2.00 50.00 L46.08 49.22 L5.65 31.63 L46.67 47.78 L16.06 16.06 L47.78 46.67 L31.63 5.65 L49.22 46.08 Z" />
+      </symbol>
+      <!-- 6-point star -->
+      <symbol id="star6" viewBox="0 0 100 100">
+        <path d="M50 2 L59.5 33.55 L91.57 26 L69 50 L91.57 74 L59.5 66.45 L50 98 L40.5 66.45 L8.43 74 L31 50 L8.43 26 L40.5 33.55 Z" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

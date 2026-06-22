@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nouwen - If not now, when?</title>
+  <meta name="description" content="Nouwen - Seul'den gelen deneyim dünyası seni bekliyor. Eğlence adım attığın anda başlar.">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* ── Font Face Declarations ── */
+    @font-face {
+      font-family: 'NoeDisplay';
+      src: url('Fonts/NoeDisplay-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Alika';
+      src: url('Fonts/Alika.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gilroy';
+      src: url('Fonts/Gilroy-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gilroy';
+      src: url('Fonts/Gilroy-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gilroy';
+      src: url('Fonts/Gilroy-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gilroy';
+      src: url('Fonts/Gilroy-Extrabold.otf') format('opentype');
+      font-weight: 800;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gilroy';
+      src: url('Fonts/Gilroy-Black.otf') format('opentype');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Gilroy';
+      src: url('Fonts/Gilroy-Light.otf') format('opentype');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'DMSans';
+      src: url('Fonts/DMSans-VariableFont_opsz,wght.ttf') format('truetype');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Rajdhani';
+      src: url('Fonts/Rajdhani-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* ── Starburst SVG ── */
+    .star-4 {
+      width: 40px; height: 40px;
+      background: #e20017;
+      clip-path: polygon(50% 0%, 61% 35%, 100% 38%, 68% 59%, 79% 100%, 50% 75%, 21% 100%, 32% 59%, 0% 38%, 39% 35%);
+    }
+    .star-4-lg {
+      width: 60px; height: 60px;
+      background: #e20017;
+      clip-path: polygon(50% 0%, 61% 35%, 100% 38%, 68% 59%, 79% 100%, 50% 75%, 21% 100%, 32% 59%, 0% 38%, 39% 35%);
+    }
+    .star-4-sm {
+      width: 24px; height: 24px;
+      background: #e20017;
+      clip-path: polygon(50% 0%, 61% 35%, 100% 38%, 68% 59%, 79% 100%, 50% 75%, 21% 100%, 32% 59%, 0% 38%, 39% 35%);
+    }
+
+    /* 4-pointed star */
+    .star-cross {
+      clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+    }
+
+    /* Firework burst */
+    .firework {
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
+    .firework::before, .firework::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 2px;
+      background: #e20017;
+      transform-origin: center;
+    }
+    .firework-line {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 2px; height: 50px;
+      background: #e20017;
+      transform-origin: top center;
+    }
+
+    /* Countdown flip card */
+    .flip-card {
+      background: #e20017;
+      color: white;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 7rem;
+      line-height: 1;
+      width: 110px;
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      position: relative;
+      box-shadow: 0 6px 20px rgba(226,0,23,0.3);
+    }
+    @media (min-width: 768px) {
+      .flip-card {
+        font-size: 9rem;
+        width: 140px;
+        height: 180px;
+      }
+    }
+    .flip-card::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: rgba(0,0,0,0.15);
+    }
+    .flip-dot {
+      width: 14px; height: 14px;
+      background: #00549c;
+      border-radius: 50%;
+      position: absolute;
+      top: -7px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .flip-string {
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      width: 1.5px;
+      height: 50px;
+      background: #00549c;
+    }
+
+    /* Carousel */
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-item {
+      min-width: 220px;
+      height: 260px;
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin: 0 8px;
+    }
+    .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .carousel-item-center {
+      min-width: 260px;
+      height: 320px;
+      border-radius: 16px;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin: 0 8px;
+      z-index: 2;
+    }
+    .carousel-item-center img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Animations */
+    @keyframes pulse-star {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.15); opacity: 0.8; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-pulse-star { animation: pulse-star 2s ease-in-out infinite; }
+    .animate-float { animation: float 3s ease-in-out infinite; }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'nouwen-red': '#e20017',
+            'nouwen-blue': '#00549c',
+            'nouwen-light': '#f7f7f7',
+          },
+          fontFamily: {
+            'noe': ['NoeDisplay', 'Georgia', 'serif'],
+            'alika': ['Alika', 'cursive'],
+            'gilroy': ['Gilroy', 'sans-serif'],
+            'dmsans': ['DMSans', 'sans-serif'],
+            'rajdhani': ['Rajdhani', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-gray-900 font-gilroy overflow-x-hidden">
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- HEADER / NAV -->
+  <!-- ════════════════════════════════════════════ -->
+  <header id="header" class="w-full bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" id="logo-link" class="flex-shrink-0">
+        <img src="logo/LOGO 2000x667.svg" alt="Nouwen Logo" class="h-12 md:h-14 w-auto">
+      </a>
+      <!-- Navigation -->
+      <nav id="main-nav" class="hidden md:flex items-center gap-8">
+        <a href="#seulab" class="text-sm tracking-[0.2em] text-nouwen-blue hover:text-nouwen-red transition-colors font-gilroy font-medium">SEULAB</a>
+        <a href="#photobooth" class="text-sm tracking-[0.2em] text-nouwen-blue hover:text-nouwen-red transition-colors font-gilroy font-medium">PHOTO BOOTH</a>
+        <a href="#glamarea" class="text-sm tracking-[0.2em] text-nouwen-blue hover:text-nouwen-red transition-colors font-gilroy font-medium">GLAM AREA</a>
+        <a href="#karaoke" class="text-sm tracking-[0.2em] text-nouwen-blue hover:text-nouwen-red transition-colors font-gilroy font-medium">KARAOKE</a>
+        <a href="#yoort" class="text-sm tracking-[0.2em] text-nouwen-blue hover:text-nouwen-red transition-colors font-gilroy font-medium">YOORT</a>
+      </nav>
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-btn" class="md:hidden text-nouwen-blue" onclick="document.getElementById('mobile-nav').classList.toggle('hidden')">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <!-- Mobile nav -->
+    <nav id="mobile-nav" class="hidden md:hidden px-6 pb-4 flex flex-col gap-3">
+      <a href="#seulab" class="text-sm tracking-[0.2em] text-nouwen-blue font-gilroy font-medium">SEULAB</a>
+      <a href="#photobooth" class="text-sm tracking-[0.2em] text-nouwen-blue font-gilroy font-medium">PHOTO BOOTH</a>
+      <a href="#glamarea" class="text-sm tracking-[0.2em] text-nouwen-blue font-gilroy font-medium">GLAM AREA</a>
+      <a href="#karaoke" class="text-sm tracking-[0.2em] text-nouwen-blue font-gilroy font-medium">KARAOKE</a>
+      <a href="#yoort" class="text-sm tracking-[0.2em] text-nouwen-blue font-gilroy font-medium">YOORT</a>
+    </nav>
+  </header>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- HERO SECTION -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="hero" class="relative max-w-7xl mx-auto px-6 pt-12 md:pt-20 pb-8">
+    <h1 class="font-noe text-nouwen-blue text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-3xl">
+      BURADA PLAN YOK<br>
+      SADECE TEK BİR SORU VAR:<br>
+      <span class="font-alika">ŞİMDİ DEĞİLSE NE ZAMAN?</span>
+    </h1>
+    <p class="mt-6 text-nouwen-blue text-xs tracking-[0.2em] font-gilroy font-medium uppercase leading-relaxed">
+      NOUWEN'I KEŞFETMEYE<br>HAZIR MISIN?
+    </p>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- COUNTDOWN SECTION -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="countdown" class="relative py-16 md:py-24 overflow-hidden">
+    <!-- Decorative firework left -->
+    <div class="absolute left-0 top-1/4 -translate-x-1/4 opacity-80 hidden md:block">
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+        <g stroke="#e20017" stroke-width="1.5">
+          <line x1="70" y1="70" x2="70" y2="0"/>
+          <line x1="70" y1="70" x2="140" y2="70"/>
+          <line x1="70" y1="70" x2="70" y2="140"/>
+          <line x1="70" y1="70" x2="0" y2="70"/>
+          <line x1="70" y1="70" x2="120" y2="20"/>
+          <line x1="70" y1="70" x2="120" y2="120"/>
+          <line x1="70" y1="70" x2="20" y2="120"/>
+          <line x1="70" y1="70" x2="20" y2="20"/>
+          <line x1="70" y1="70" x2="100" y2="5"/>
+          <line x1="70" y1="70" x2="135" y2="100"/>
+          <line x1="70" y1="70" x2="40" y2="135"/>
+          <line x1="70" y1="70" x2="5" y2="40"/>
+        </g>
+        <circle cx="70" cy="70" r="4" fill="#e20017"/>
+      </svg>
+    </div>
+
+    <!-- Decorative firework right -->
+    <div class="absolute right-0 bottom-1/4 translate-x-1/4 opacity-80 hidden md:block">
+      <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+        <g stroke="#e20017" stroke-width="1.5">
+          <line x1="70" y1="70" x2="70" y2="0"/>
+          <line x1="70" y1="70" x2="140" y2="70"/>
+          <line x1="70" y1="70" x2="70" y2="140"/>
+          <line x1="70" y1="70" x2="0" y2="70"/>
+          <line x1="70" y1="70" x2="120" y2="20"/>
+          <line x1="70" y1="70" x2="120" y2="120"/>
+          <line x1="70" y1="70" x2="20" y2="120"/>
+          <line x1="70" y1="70" x2="20" y2="20"/>
+          <line x1="70" y1="70" x2="100" y2="5"/>
+          <line x1="70" y1="70" x2="135" y2="100"/>
+          <line x1="70" y1="70" x2="40" y2="135"/>
+          <line x1="70" y1="70" x2="5" y2="40"/>
+        </g>
+        <circle cx="70" cy="70" r="4" fill="#e20017"/>
+      </svg>
+    </div>
+
+    <!-- Stars scattered -->
+    <div class="absolute top-8 left-[15%] star-cross w-10 h-10 bg-nouwen-red animate-pulse-star"></div>
+    <div class="absolute top-20 left-[28%] star-cross w-6 h-6 bg-nouwen-red animate-pulse-star" style="animation-delay:0.5s"></div>
+    <div class="absolute top-4 right-[30%] star-cross w-8 h-8 bg-nouwen-red animate-pulse-star" style="animation-delay:0.3s"></div>
+    <div class="absolute top-24 right-[20%] star-cross w-12 h-12 bg-nouwen-red animate-pulse-star" style="animation-delay:0.7s"></div>
+    <div class="absolute bottom-32 right-[25%] star-cross w-7 h-7 bg-nouwen-red animate-pulse-star" style="animation-delay:1s"></div>
+
+    <!-- Flip Cards (two separate cards like the design) -->
+    <div class="flex items-end justify-center gap-3 md:gap-5 relative z-10">
+      <div class="relative">
+        <div class="flip-string"></div>
+        <div class="flip-card" id="countdown-digit-0">
+          <div class="flip-dot"></div>
+          0
+        </div>
+      </div>
+      <div class="relative">
+        <div class="flip-string"></div>
+        <div class="flip-card" id="countdown-digit-1">
+          <div class="flip-dot"></div>
+          5
+        </div>
+      </div>
+    </div>
+
+    <!-- Countdown text -->
+    <div class="text-center mt-10 relative z-10">
+      <h2 class="font-alika text-nouwen-blue text-2xl md:text-4xl tracking-wide">
+        GERİ SAYIM BAŞLADI!
+      </h2>
+      <p class="mt-4 text-nouwen-blue text-xs md:text-sm tracking-[0.25em] font-gilroy font-light leading-relaxed uppercase">
+        UNUTAMAYACAĞIN<br>
+        BİR DENEYİM<br>
+        ÇOK YAKINDA SENİNLE.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- ABOUT / NOUWEN NEDİR -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="about" class="py-16 md:py-24 text-center px-6">
+    <!-- Star icon -->
+    <div class="flex justify-center mb-4">
+      <div class="star-cross w-10 h-10 bg-nouwen-red animate-float"></div>
+    </div>
+
+    <h2 class="font-noe text-nouwen-blue text-3xl md:text-5xl mb-6">
+      Nouwen Nedir?
+    </h2>
+    <p class="max-w-xl mx-auto text-nouwen-blue font-gilroy font-light text-sm md:text-base leading-relaxed">
+      Seul'den gelen deneyim dünyası seni bekliyor.<br>
+      Burada eğlence adım attığın anda başlar. Cevaplaman gereken tek soru ise;<br>
+      Hangisinden başlıyoruz?
+    </p>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- FEATURES / NELER BEKLİYOR -->
+  <!-- ════════════════════════════════════════════ -->
+  <section id="features" class="py-8 md:py-16 px-6">
+    <h2 class="font-gilroy font-black text-nouwen-red text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-center leading-none mb-12 md:mb-16 uppercase">
+      NOUWEN'DE SENİ<br>NELER BEKLİYOR?
+    </h2>
+
+    <!-- Carousel -->
+    <div id="carousel-section" class="relative max-w-6xl mx-auto overflow-hidden">
+      <div id="carousel-track" class="carousel-track items-end justify-center py-4">
+        <!-- Item 1 -->
+        <div class="carousel-item bg-gray-200 rounded-2xl shadow-lg">
+          <div class="w-full h-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center">
+            <svg class="w-16 h-16 text-nouwen-red opacity-40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          </div>
+        </div>
+        <!-- Item 2 -->
+        <div class="carousel-item bg-gray-200 rounded-2xl shadow-lg">
+          <div class="w-full h-full bg-gradient-to-br from-red-50 to-red-100 flex items-center justify-center p-4">
+            <span class="font-noe text-nouwen-red text-xl text-center">nouwen</span>
+          </div>
+        </div>
+        <!-- Item 3 (center / larger) -->
+        <div class="carousel-item-center bg-gray-200 rounded-2xl shadow-xl">
+          <div class="w-full h-full bg-gradient-to-br from-red-400 to-red-500 flex items-center justify-center p-4">
+            <span class="font-gilroy text-white text-xl font-bold text-center">KORE BEAUTY</span>
+          </div>
+        </div>
+        <!-- Item 4 -->
+        <div class="carousel-item bg-gray-200 rounded-2xl shadow-lg">
+          <div class="w-full h-full bg-gradient-to-br from-green-50 to-teal-100 flex items-center justify-center p-4">
+            <span class="font-gilroy text-nouwen-blue text-lg font-bold">yoort</span>
+          </div>
+        </div>
+        <!-- Item 5 -->
+        <div class="carousel-item bg-gray-200 rounded-2xl shadow-lg">
+          <div class="w-full h-full bg-gradient-to-br from-indigo-100 to-purple-200 flex items-center justify-center">
+            <svg class="w-16 h-16 text-purple-400 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel label -->
+      <div class="text-center mt-8">
+        <p class="font-gilroy font-bold text-nouwen-red text-sm tracking-[0.15em] uppercase" id="carousel-label">KORE BEAUTY</p>
+        <p class="font-gilroy font-black text-nouwen-blue text-lg tracking-[0.1em] uppercase mt-1" id="carousel-sublabel">SEULAB</p>
+        <!-- Nav arrows -->
+        <div class="flex items-center justify-center gap-4 mt-4">
+          <button id="carousel-prev" class="text-nouwen-red hover:text-nouwen-blue transition-colors text-lg font-bold" onclick="moveCarousel(-1)">←</button>
+          <span class="text-nouwen-red text-xs tracking-[0.2em] font-gilroy font-medium uppercase">VIEW ALL</span>
+          <button id="carousel-next" class="text-nouwen-red hover:text-nouwen-blue transition-colors text-lg font-bold" onclick="moveCarousel(1)">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ════════════════════════════════════════════ -->
+  <footer id="footer" class="bg-white border-t border-gray-100 py-8 text-center">
+    <img src="logo/LOGO 512x512.svg" alt="Nouwen" class="h-10 mx-auto mb-3 opacity-70">
+    <p class="text-nouwen-blue text-xs font-gilroy font-light tracking-widest">© 2026 Nouwen. All rights reserved.</p>
+  </footer>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- SCRIPTS -->
+  <!-- ════════════════════════════════════════════ -->
+  <script>
+    // Simple carousel
+    let carouselPos = 0;
+    const labels = [
+      { top: 'MAKYAJ', bottom: 'GLAM AREA' },
+      { top: 'KORE BEAUTY', bottom: 'SEULAB' },
+      { top: 'KORE BEAUTY', bottom: 'SEULAB' },
+      { top: 'FROZEN YOGURT', bottom: 'YOORT' },
+      { top: 'MÜZİK', bottom: 'KARAOKE' },
+    ];
+
+    function moveCarousel(dir) {
+      const track = document.getElementById('carousel-track');
+      const items = track.children;
+      const maxPos = items.length - 1;
+      carouselPos = Math.max(0, Math.min(maxPos, carouselPos + dir));
+      const offset = carouselPos * 236;
+      track.style.transform = `translateX(-${offset}px)`;
+
+      const idx = Math.min(carouselPos, labels.length - 1);
+      document.getElementById('carousel-label').textContent = labels[idx].top;
+      document.getElementById('carousel-sublabel').textContent = labels[idx].bottom;
+    }
+
+    // Countdown timer (target: 5 days from now for demo)
+    function updateCountdown() {
+      const target = new Date();
+      target.setDate(target.getDate() + 5);
+      target.setHours(0, 0, 0, 0);
+
+      const now = new Date();
+      const diff = target - now;
+      const days = Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+      const str = String(days).padStart(2, '0');
+
+      const d0 = document.getElementById('countdown-digit-0');
+      const d1 = document.getElementById('countdown-digit-1');
+      if (d0) d0.innerHTML = `<div class="flip-dot"></div>${str[0]}`;
+      if (d1) d1.innerHTML = `<div class="flip-dot"></div>${str[1]}`;
+    }
+    updateCountdown();
+  </script>
+</body>
+</html>

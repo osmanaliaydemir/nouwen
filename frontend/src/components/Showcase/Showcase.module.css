@@ -1,0 +1,185 @@
+.features {
+  padding-top: clamp(60px, 10vw, 120px);
+}
+
+.featuresTitle {
+  font-weight: 900;
+  font-size: clamp(40px, 8.5vw, 128px);
+  line-height: 1.04;
+  color: var(--blue);
+  margin: 0 auto;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Showcase wrapper ---- */
+.showcase {
+  position: relative;
+  margin-top: clamp(34px, 5vw, 72px);
+}
+
+/* ---- Cards ---- */
+.showcaseCards {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(14px, 2.6vw, 44px);
+  padding-inline: clamp(16px, 4vw, 64px);
+}
+
+.card {
+  margin: 0;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+.cardFeature { cursor: default; z-index: 3; }
+
+.cardImg {
+  display: block;
+  width: clamp(120px, 13.5vw, 215px);
+  aspect-ratio: 4 / 5;
+  border-radius: clamp(18px, 2.4vw, 32px);
+  background-color: var(--cream);
+  background-image: var(--img);
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 14px 30px rgba(20, 69, 127, 0.12);
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.4s ease,
+              width 0.4s ease;
+}
+.card:not(.cardFeature):hover .cardImg { transform: translateY(-6px); }
+
+.cardFeature .cardImg {
+  width: clamp(200px, 21vw, 330px);
+  aspect-ratio: 3 / 4;
+  border-radius: clamp(24px, 3vw, 44px);
+  box-shadow: 0 26px 52px rgba(20, 69, 127, 0.22);
+  transform: translateY(6%);
+}
+
+/* pop animation when active card changes */
+.cardFeature .cardImg.isPop {
+  animation: cardPop 0.4s ease;
+}
+@keyframes cardPop {
+  0%   { transform: translateY(6%) scale(0.94); }
+  60%  { transform: translateY(6%) scale(1.02); }
+  100% { transform: translateY(6%) scale(1); }
+}
+
+.cardB .cardImg { transform: translateY(-5%); }
+.cardC .cardImg { transform: translateY(3%); }
+
+/* ---- Red hill ---- */
+.showcaseHill {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: clamp(230px, 27vw, 360px);
+  margin-top: clamp(-140px, -8vw, -70px);
+  fill: var(--red);
+}
+
+/* ---- Beam ---- */
+.showcaseBeam {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(112px, 13vw, 182px);
+  transform: translateX(-50%);
+  width: clamp(180px, 24vw, 410px);
+  height: clamp(90px, 11vw, 170px);
+  background: var(--red-light);
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+  z-index: 1;
+}
+
+/* ---- Caption ---- */
+.showcaseCaption {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(14px, 2.2vw, 32px);
+  transform: translateX(-50%);
+  z-index: 4;
+  text-align: center;
+  color: var(--white);
+  width: max-content;
+}
+
+.showcaseEyebrow {
+  margin: 0;
+  font-weight: 500;
+  font-size: clamp(16px, 1.7vw, 26px);
+  letter-spacing: 0.14em;
+}
+
+.showcaseName {
+  margin: 3px 0 0;
+  font-weight: 800;
+  font-size: clamp(20px, 2.3vw, 34px);
+  letter-spacing: 0.14em;
+}
+
+.showcaseViewall {
+  margin-top: clamp(8px, 1.4vw, 18px);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(14px, 2vw, 28px);
+  font-weight: 500;
+  font-size: clamp(10px, 1vw, 13px);
+  letter-spacing: 0.22em;
+}
+
+.showcaseArrow {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  font-size: 1.5em;
+  line-height: 1;
+  padding: 4px 6px;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.showcaseArrow:hover { transform: scale(1.2); opacity: 0.8; }
+
+.showcaseViewallLabel {
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .showcaseCards {
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-block: 8px clamp(50px, 12vw, 80px);
+    padding-inline: 20px;
+    gap: 16px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .showcaseCards::-webkit-scrollbar { display: none; }
+  .card { scroll-snap-align: center; }
+  .cardImg { width: clamp(160px, 30vw, 210px); }
+  .cardFeature .cardImg { width: clamp(200px, 38vw, 260px); transform: none; }
+  .cardB .cardImg,
+  .cardC .cardImg { transform: none; }
+  .showcaseHill {
+    margin-top: clamp(-60px, -9vw, -40px);
+    height: clamp(200px, 30vw, 280px);
+  }
+}
+
+@media (max-width: 620px) {
+  .cardImg { width: clamp(150px, 56vw, 200px); }
+  .cardFeature .cardImg { width: clamp(190px, 68vw, 240px); }
+  .showcaseCards { padding-block: 8px clamp(46px, 15vw, 80px); }
+  .showcaseHill {
+    margin-top: clamp(-46px, -12vw, -34px);
+    height: clamp(180px, 40vw, 240px);
+  }
+}
