@@ -6,6 +6,7 @@ frontend/.vercel
 
 # Dependencies
 frontend/node_modules/
+images/
 
 # Debug
 frontend/npm-debug.log*

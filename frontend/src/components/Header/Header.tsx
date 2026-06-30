@@ -38,7 +38,16 @@ export default function Header() {
 
               items.push(
                 <li key={link.href}>
-                  <Link href={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={(e) => {
+                      if (link.href.startsWith('#')) {
+                        window.dispatchEvent(
+                          new CustomEvent('nouwen-nav', { detail: link.href.replace('#', '') })
+                        );
+                      }
+                    }}
+                  >
                     {link.multiLine
                       ? link.label.split('\n').map((part, j) => (
                         <span key={j}>

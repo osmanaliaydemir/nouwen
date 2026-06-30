@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { SHOWCASE_ITEMS } from '@/lib/constants';
 import styles from './Showcase.module.css';
 
@@ -33,6 +33,43 @@ export default function Showcase() {
     setPopKey((k) => k + 1);
   }, []);
 
+  useEffect(() => {
+    const handleHash = (hashVal?: string) => {
+      const hash = typeof hashVal === 'string' ? hashVal : window.location.hash.replace('#', '');
+      if (!hash) return;
+      
+      const itemIndex = SHOWCASE_ITEMS.findIndex(item => item.id === hash);
+      if (itemIndex !== -1) {
+        setOrder((prev) => {
+          const slot = prev.indexOf(itemIndex);
+          if (slot !== -1 && slot !== CENTER) {
+             const next = [...prev];
+             [next[slot], next[CENTER]] = [next[CENTER], next[slot]];
+             return next;
+          }
+          return prev;
+        });
+        setPopKey((k) => k + 1);
+      }
+    };
+
+    const onHashChange = () => handleHash();
+    const onCustomNav = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail) {
+        handleHash(customEvent.detail);
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', onHashChange);
+    window.addEventListener('nouwen-nav', onCustomNav);
+    return () => {
+      window.removeEventListener('hashchange', onHashChange);
+      window.removeEventListener('nouwen-nav', onCustomNav);
+    };
+  }, []);
+
   return (
     <section className={styles.features} id="features">
       <h2 className={`${styles.featuresTitle} container`}>
@@ -42,6 +79,9 @@ export default function Showcase() {
       </h2>
 
       <div className={styles.showcase}>
+        {SHOWCASE_ITEMS.map((item) => (
+          <div key={item.id} id={item.id} style={{ position: 'absolute', top: '-120px', left: 0, right: 0 }} aria-hidden="true" />
+        ))}
         {/* red-carpet beam */}
         <span className={styles.showcaseBeam} aria-hidden="true" />
 
