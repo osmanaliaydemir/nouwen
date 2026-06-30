@@ -5,35 +5,46 @@
 
 :root {
   /* Colors */
-  --blue:        #1a5fa8;   /* primary headings / nav */
-  --blue-soft:   #4f93d6;   /* body / secondary text */
-  --ink:         #16457f;   /* navy: pins, strings, dividers */
-  --red:         #ee2f24;   /* accent / decorations / hill */
-  --red-light:   #f4695e;   /* lighter red-carpet beam */
-  --pink-bg:     #fbe9e6;   /* header background */
-  --cream:       #f3efea;   /* gallery card placeholder */
-  --white:       #ffffff;
+  --blue: #1a5fa8;
+  /* primary headings / nav */
+  --blue-soft: #4f93d6;
+  /* body / secondary text */
+  --ink: #16457f;
+  /* navy: pins, strings, dividers */
+  --red: #ee2f24;
+  /* accent / decorations / hill */
+  --red-light: #f4695e;
+  /* lighter red-carpet beam */
+  --pink-bg: #fbe9e6;
+  /* header background */
+  --cream: #f3efea;
+  /* gallery card placeholder */
+  --white: #ffffff;
 
   /* Typography */
-  --font-sans:  'Gilroy', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-serif: 'Noe Display', 'Playfair Display', Georgia, serif;  /* CoFo Raffine stand-in */
-  --font-logo:  'Alika', 'Noe Display', serif;
+  --font-sans: 'Gilroy', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-serif: 'Noe Display', 'Playfair Display', Georgia, serif;
+  /* CoFo Raffine stand-in */
+  --font-logo: 'Alika', 'Noe Display', serif;
 
   /* Layout */
-  --container:   1180px;
-  --gutter:      clamp(20px, 5vw, 60px);
-  --radius:      18px;
+  --container: 1180px;
+  --gutter: clamp(20px, 5vw, 60px);
+  --radius: 18px;
 }
 
 /* --------------------------------------------------------- reset */
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;          /* clip horizontal overflow at the root (keeps sticky header working) */
+  overflow-x: hidden;
+  /* clip horizontal overflow at the root (keeps sticky header working) */
 }
 
 body {
@@ -44,10 +55,26 @@ body {
   line-height: 1.45;
 }
 
-a { color: inherit; text-decoration: none; }
-ul { margin: 0; padding: 0; list-style: none; }
-img { max-width: 100%; display: block; }
-button { font-family: inherit; cursor: pointer; }
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
 
 .container {
   width: 100%;
@@ -75,7 +102,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* Brand / logo */
-.brand { display: inline-flex; flex-direction: column; line-height: 1; }
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
 .brand__name {
   font-family: var(--font-logo);
   font-weight: 400;
@@ -83,11 +115,13 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--red);
   letter-spacing: .005em;
 }
+
 .brand__tagline {
   font-size: clamp(10px, 1vw, 13px);
   font-weight: 500;
   letter-spacing: .16em;
-  color: var(--blue);          /* tagline is blue, not red */
+  color: var(--blue);
+  /* tagline is blue, not red */
   margin-top: 8px;
   text-align: center;
 }
@@ -95,12 +129,16 @@ button { font-family: inherit; cursor: pointer; }
 /* Navigation */
 /* pull the menu left so PHOTO BOOTH (and the clock that follows its dividers)
    sits more towards the centre instead of the far right */
-.main-nav { margin-right: clamp(20px, 7vw, 150px); }
+.main-nav {
+  margin-right: clamp(20px, 7vw, 150px);
+}
+
 .main-nav__list {
   display: flex;
   align-items: center;
   gap: clamp(18px, 3vw, 50px);
 }
+
 .main-nav a {
   font-size: clamp(11px, 1.05vw, 15px);
   font-weight: 500;
@@ -110,15 +148,20 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.2;
   display: inline-block;
   padding-bottom: 6px;
-  border-bottom: 1.5px solid currentColor;   /* per-item underline */
+  border-bottom: 1.5px solid currentColor;
+  /* per-item underline */
   transition: opacity .2s ease;
 }
-.main-nav a:hover { opacity: .55; }
+
+.main-nav a:hover {
+  opacity: .55;
+}
 
 /* vertical dividers flanking PHOTO BOOTH (also the clock strings up top) */
 .nav-divider {
   width: 1.5px;
-  height: 96px;                /* spans full header height */
+  height: 96px;
+  /* spans full header height */
   background: var(--ink);
   align-self: center;
 }
@@ -134,6 +177,7 @@ button { font-family: inherit; cursor: pointer; }
   background: transparent;
   padding: 7px;
 }
+
 .nav-toggle span {
   height: 2.5px;
   width: 100%;
@@ -145,7 +189,11 @@ button { font-family: inherit; cursor: pointer; }
 /* =========================================================
    HERO
    ========================================================= */
-.hero { padding-top: clamp(40px, 7vw, 80px); position: relative; z-index: 2; }
+.hero {
+  padding-top: clamp(40px, 7vw, 40px);
+  position: relative;
+  z-index: 2;
+}
 
 .hero__title {
   margin: 0;
@@ -158,6 +206,7 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.05;
   letter-spacing: .015em;
 }
+
 .hero__line--serif {
   font-family: var(--font-serif);
   font-weight: 500;
@@ -180,50 +229,72 @@ button { font-family: inherit; cursor: pointer; }
   position: relative;
   text-align: center;
   padding: clamp(80px, 13vw, 170px) var(--gutter) clamp(24px, 4vw, 50px);
-  overflow: visible;            /* let strings rise into the hero */
+  overflow: visible;
+  /* let strings rise into the hero */
 }
 
 /* Flip clock — two columns hang from rails aligned to the header dividers.
    JS (alignRails) overrides --pin-left/--pin-right/--card-w/--string-h on desktop
    so the strings line up exactly under the PHOTO BOOTH dividers. */
 .flip-clock {
-  --card-w:  clamp(115px, 11vw, 185px);
-  --card-h:  clamp(150px, 13vw, 215px);
+  --card-w: clamp(115px, 11vw, 185px);
+  --card-h: clamp(150px, 13vw, 215px);
   --row-gap: clamp(8px, 0.9vw, 16px);
-  --clock-r:  clamp(20px, 2.6vw, 38px);
+  --clock-r: clamp(20px, 2.6vw, 38px);
   --clock-ri: clamp(8px, 1vw, 16px);
   --string-h: clamp(150px, 22vw, 330px);
-  --pin-left:  calc(50% - var(--card-w) / 2 - 4px);
+  --pin-left: calc(50% - var(--card-w) / 2 - 4px);
   --pin-right: calc(50% + var(--card-w) / 2 + 4px);
   position: relative;
   width: 100%;
   height: calc(var(--card-h) * 2 + var(--row-gap));
   z-index: 2;
 }
-.flip-clock__cards { display: contents; }
+
+.flip-clock__cards {
+  display: contents;
+}
+
 .flip-clock__col {
   position: absolute;
   top: 0;
   width: var(--card-w);
-  transform: translateX(-50%);            /* centred on its rail */
+  transform: translateX(-50%);
+  /* centred on its rail */
   display: flex;
   flex-direction: column;
-  gap: var(--row-gap);                     /* fold gap between top & bottom card */
+  gap: var(--row-gap);
+  /* fold gap between top & bottom card */
 }
-.flip-clock__col--left  { left: var(--pin-left); }
-.flip-clock__col--right { left: var(--pin-right); }
+
+.flip-clock__col--left {
+  left: var(--pin-left);
+}
+
+.flip-clock__col--right {
+  left: var(--pin-right);
+}
+
 .flip-clock__card {
   display: block;
   width: 100%;
   height: var(--card-h);
   background: var(--red);
 }
-.flip-clock__card--top    { border-radius: var(--clock-r) var(--clock-r) var(--clock-ri) var(--clock-ri); }
-.flip-clock__card--bottom { border-radius: var(--clock-ri) var(--clock-ri) var(--clock-r) var(--clock-r); }
+
+.flip-clock__card--top {
+  border-radius: var(--clock-r) var(--clock-r) var(--clock-ri) var(--clock-ri);
+}
+
+.flip-clock__card--bottom {
+  border-radius: var(--clock-ri) var(--clock-ri) var(--clock-r) var(--clock-r);
+}
 
 .flip-clock__pin {
   position: absolute;
-  top: -7px; left: 50%;                    /* sits on the top edge of the top card */
+  top: -7px;
+  left: 50%;
+  /* sits on the top edge of the top card */
   transform: translateX(-50%);
   width: clamp(13px, 1vw, 18px);
   aspect-ratio: 1;
@@ -231,19 +302,25 @@ button { font-family: inherit; cursor: pointer; }
   background: var(--ink);
   z-index: 3;
 }
+
 .flip-clock__string {
   position: absolute;
-  bottom: 100%; left: 50%;                 /* rises up to meet the header divider */
+  bottom: 100%;
+  left: 50%;
+  /* rises up to meet the header divider */
   transform: translateX(-50%);
   width: 2px;
   height: var(--string-h);
   background: var(--ink);
   opacity: .9;
 }
+
 .flip-clock__digits {
   position: absolute;
-  left: calc((var(--pin-left) + var(--pin-right)) / 2);   /* midpoint of the rails */
-  top: calc(var(--card-h) + var(--row-gap) / 2);          /* vertical centre of the stack */
+  left: calc((var(--pin-left) + var(--pin-right)) / 2);
+  /* midpoint of the rails */
+  top: calc(var(--card-h) + var(--row-gap) / 2);
+  /* vertical centre of the stack */
   transform: translate(-50%, -50%);
   color: var(--white);
   font-family: var(--font-serif);
@@ -263,6 +340,7 @@ button { font-family: inherit; cursor: pointer; }
   margin: clamp(30px, 5vw, 56px) 0 0;
   letter-spacing: .02em;
 }
+
 .countdown__text {
   margin: clamp(14px, 2vw, 22px) 0 0;
   font-weight: 500;
@@ -280,14 +358,17 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
   padding-top: clamp(24px, 4vw, 56px);
 }
+
 .about__spark {
   display: block;
   width: clamp(42px, 4.4vw, 62px);
   height: auto;
   margin: 0 auto clamp(26px, 4vw, 44px);
   fill: var(--red);
-  transform: scale(0.82, 1.35);          /* vertically elongated sparkle */
+  transform: scale(0.82, 1.35);
+  /* vertically elongated sparkle */
 }
+
 .about__title {
   font-weight: 700;
   font-size: clamp(30px, 4.2vw, 60px);
@@ -295,6 +376,7 @@ button { font-family: inherit; cursor: pointer; }
   margin: 0;
   letter-spacing: -.01em;
 }
+
 .about__text {
   margin: clamp(20px, 3vw, 34px) auto 0;
   max-width: clamp(320px, 80vw, 920px);
@@ -307,7 +389,9 @@ button { font-family: inherit; cursor: pointer; }
 /* =========================================================
    FEATURES / GALLERY
    ========================================================= */
-.features { padding-top: clamp(60px, 10vw, 120px); }
+.features {
+  padding-top: clamp(60px, 10vw, 120px);
+}
 
 .features__title {
   font-weight: 900;
@@ -333,8 +417,17 @@ button { font-family: inherit; cursor: pointer; }
   gap: clamp(14px, 2.6vw, 44px);
   padding-inline: clamp(16px, 4vw, 64px);
 }
-.card { margin: 0; flex: 0 0 auto; cursor: pointer; }
-.card--feature { cursor: default; }
+
+.card {
+  margin: 0;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+.card--feature {
+  cursor: default;
+}
+
 .card__img {
   display: block;
   width: clamp(120px, 13.5vw, 215px);
@@ -345,11 +438,18 @@ button { font-family: inherit; cursor: pointer; }
   background-size: cover;
   background-position: center;
   box-shadow: 0 14px 30px rgba(20, 69, 127, .12);
-  transition: transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease, width .4s ease;
+  transition: transform .4s cubic-bezier(.22, .61, .36, 1), box-shadow .4s ease, width .4s ease;
 }
-.card:not(.card--feature):hover .card__img { transform: translateY(-6px); }
+
+.card:not(.card--feature):hover .card__img {
+  transform: translateY(-6px);
+}
+
 /* featured center card (photo booth) — larger & raised onto the hill */
-.card--feature { z-index: 3; }
+.card--feature {
+  z-index: 3;
+}
+
 .card--feature .card__img {
   width: clamp(200px, 21vw, 330px);
   aspect-ratio: 3 / 4;
@@ -357,15 +457,33 @@ button { font-family: inherit; cursor: pointer; }
   box-shadow: 0 26px 52px rgba(20, 69, 127, .22);
   transform: translateY(6%);
 }
-.card--feature .card__img.is-pop { animation: card-pop .4s ease; }
-@keyframes card-pop {
-  0%   { transform: translateY(6%) scale(.94); }
-  60%  { transform: translateY(6%) scale(1.02); }
-  100% { transform: translateY(6%) scale(1); }
+
+.card--feature .card__img.is-pop {
+  animation: card-pop .4s ease;
 }
+
+@keyframes card-pop {
+  0% {
+    transform: translateY(6%) scale(.94);
+  }
+
+  60% {
+    transform: translateY(6%) scale(1.02);
+  }
+
+  100% {
+    transform: translateY(6%) scale(1);
+  }
+}
+
 /* subtle vertical stagger of the side cards */
-.card--b .card__img { transform: translateY(-5%); }
-.card--c .card__img { transform: translateY(3%); }
+.card--b .card__img {
+  transform: translateY(-5%);
+}
+
+.card--c .card__img {
+  transform: translateY(3%);
+}
 
 /* red hill — bell curve, pulled up under the feature card */
 .showcase__hill {
@@ -377,11 +495,13 @@ button { font-family: inherit; cursor: pointer; }
   margin-top: clamp(-140px, -8vw, -70px);
   fill: var(--red);
 }
+
 /* lighter "red carpet" beam behind the feature card */
 .showcase__beam {
   position: absolute;
   left: 50%;
-  bottom: clamp(112px, 13vw, 182px);    /* under the card, above the caption text */
+  bottom: clamp(112px, 13vw, 182px);
+  /* under the card, above the caption text */
   transform: translateX(-50%);
   width: clamp(180px, 24vw, 410px);
   height: clamp(90px, 11vw, 170px);
@@ -401,18 +521,21 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--white);
   width: max-content;
 }
+
 .showcase__eyebrow {
   margin: 0;
   font-weight: 500;
   font-size: clamp(16px, 1.7vw, 26px);
   letter-spacing: .14em;
 }
+
 .showcase__name {
   margin: 3px 0 0;
   font-weight: 800;
   font-size: clamp(20px, 2.3vw, 34px);
   letter-spacing: .14em;
 }
+
 .showcase__viewall {
   margin-top: clamp(8px, 1.4vw, 18px);
   color: var(--white);
@@ -423,6 +546,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: clamp(10px, 1vw, 13px);
   letter-spacing: .22em;
 }
+
 .showcase__arrow {
   background: transparent;
   border: 0;
@@ -433,7 +557,12 @@ button { font-family: inherit; cursor: pointer; }
   cursor: pointer;
   transition: transform .2s ease, opacity .2s ease;
 }
-.showcase__arrow:hover { transform: scale(1.2); opacity: .8; }
+
+.showcase__arrow:hover {
+  transform: scale(1.2);
+  opacity: .8;
+}
+
 .showcase__viewall-label {
   padding-bottom: 3px;
   border-bottom: 1px solid currentColor;
@@ -442,35 +571,70 @@ button { font-family: inherit; cursor: pointer; }
 /* =========================================================
    DECORATIONS
    ========================================================= */
-.deco { position: absolute; fill: var(--red); z-index: 1; pointer-events: none; }
+.deco {
+  position: absolute;
+  fill: var(--red);
+  z-index: 1;
+  pointer-events: none;
+}
 
 /* two needle bursts on a diagonal (top-left / bottom-right) */
-.deco--burst { width: clamp(120px, 12.5vw, 240px); }
-.deco--burst-left  { top: 12%; left: 2%; }
+.deco--burst {
+  width: clamp(120px, 12.5vw, 240px);
+}
+
+.deco--burst-left {
+  top: 12%;
+  left: 2%;
+}
+
 /* right burst is pinned to the viewport's right edge — its centre sits on the
    edge so ~half overflows (clipped by html overflow-x:hidden) at every width */
 .deco--burst-right {
   --bw: clamp(150px, 15vw, 300px);
   width: var(--bw);
   top: 46%;
-  right: calc(-1 * var(--gutter) - var(--bw) * 0.2);   /* ~20% overflow → more of the burst visible */
+  right: calc(-1 * var(--gutter) - var(--bw) * 0.2);
+  /* ~20% overflow → more of the burst visible */
 }
 
 /* two 4-point sparkles on the opposite diagonal */
-.deco--spark { width: clamp(48px, 5vw, 95px); }
-.deco--spark-1 { top: 6%;  left: 24%; }
-.deco--spark-2 { top: 41%; right: 21%; }
+.deco--spark {
+  width: clamp(48px, 5vw, 95px);
+}
+
+.deco--spark-1 {
+  top: 6%;
+  left: 24%;
+}
+
+.deco--spark-2 {
+  top: 41%;
+  right: 21%;
+}
 
 /* two 6-point stars */
-.deco--star { width: clamp(34px, 3.2vw, 62px); }
-.deco--star-1 { top: 44%; left: 22%; }
-.deco--star-2 { top: 9%;  right: 24%; }
+.deco--star {
+  width: clamp(34px, 3.2vw, 62px);
+}
+
+.deco--star-1 {
+  top: 44%;
+  left: 22%;
+}
+
+.deco--star-2 {
+  top: 9%;
+  right: 24%;
+}
 
 /* =========================================================
    RESPONSIVE
    ========================================================= */
 @media (max-width: 900px) {
-  .nav-toggle { display: flex; }
+  .nav-toggle {
+    display: flex;
+  }
 
   .main-nav {
     position: absolute;
@@ -480,18 +644,28 @@ button { font-family: inherit; cursor: pointer; }
     margin-right: 0;
     background: var(--pink-bg);
     padding: 8px var(--gutter) 24px;
-    box-shadow: 0 16px 24px rgba(0,0,0,.08);
+    box-shadow: 0 16px 24px rgba(0, 0, 0, .08);
     clip-path: inset(0 0 100% 0);
     transition: clip-path .3s ease;
   }
-  .main-nav.is-open { clip-path: inset(0 0 0 0); }
+
+  .main-nav.is-open {
+    clip-path: inset(0 0 0 0);
+  }
+
   .main-nav__list {
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
   }
-  .main-nav a br { display: none; }
-  .nav-divider { display: none; }
+
+  .main-nav a br {
+    display: none;
+  }
+
+  .nav-divider {
+    display: none;
+  }
 
   /* gallery becomes a horizontal scroll strip (prevents tablet overflow) */
   .showcase__cards {
@@ -504,26 +678,70 @@ button { font-family: inherit; cursor: pointer; }
     gap: 16px;
     -webkit-overflow-scrolling: touch;
   }
-  .showcase__cards::-webkit-scrollbar { display: none; }
-  .card { scroll-snap-align: center; }
-  .card__img { width: clamp(160px, 30vw, 210px); }
-  .card--feature .card__img { width: clamp(200px, 38vw, 260px); transform: none; }
+
+  .showcase__cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .card {
+    scroll-snap-align: center;
+  }
+
+  .card__img {
+    width: clamp(160px, 30vw, 210px);
+  }
+
+  .card--feature .card__img {
+    width: clamp(200px, 38vw, 260px);
+    transform: none;
+  }
+
   .card--b .card__img,
-  .card--c .card__img { transform: none; }
-  .showcase__hill { margin-top: clamp(-60px, -9vw, -40px); height: clamp(200px, 30vw, 280px); }
+  .card--c .card__img {
+    transform: none;
+  }
+
+  .showcase__hill {
+    margin-top: clamp(-60px, -9vw, -40px);
+    height: clamp(200px, 30vw, 280px);
+  }
 }
 
 @media (max-width: 620px) {
-  .card__img { width: clamp(150px, 56vw, 200px); }
-  .card--feature .card__img { width: clamp(190px, 68vw, 240px); }
-  .showcase__cards { padding-block: 8px clamp(46px, 15vw, 80px); }
-  .showcase__hill { margin-top: clamp(-46px, -12vw, -34px); height: clamp(180px, 40vw, 240px); }
+  .card__img {
+    width: clamp(150px, 56vw, 200px);
+  }
 
-  .deco--burst-left  { top: 16%; left: -8%; }
-  .deco--burst-right { top: 44%; right: -8%; }
+  .card--feature .card__img {
+    width: clamp(190px, 68vw, 240px);
+  }
+
+  .showcase__cards {
+    padding-block: 8px clamp(46px, 15vw, 80px);
+  }
+
+  .showcase__hill {
+    margin-top: clamp(-46px, -12vw, -34px);
+    height: clamp(180px, 40vw, 240px);
+  }
+
+  .deco--burst-left {
+    top: 16%;
+    left: -8%;
+  }
+
+  .deco--burst-right {
+    top: 44%;
+    right: -8%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  * { transition: none !important; }
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
 }

@@ -1,5 +1,5 @@
 .hero {
-  padding-top: clamp(40px, 7vw, 80px);
+  padding-top: clamp(40px, 7vw, 40px);
   position: relative;
   z-index: 2;
 }

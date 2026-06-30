@@ -6,7 +6,7 @@
   position: relative;
   background: var(--white);
   text-align: center;
-  padding: clamp(72px, 11vw, 10px) var(--gutter) clamp(64px, 9vw, 100px);
+  padding: clamp(72px, 11vw, 10px) var(--gutter) clamp(64px, 9vw, 10px);
   overflow: hidden;
 }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { SHOWCASE_ITEMS } from '@/lib/constants';
 import styles from './Showcase.module.css';
 
@@ -10,6 +10,7 @@ export default function Showcase() {
   // order[slotIndex] = itemIndex
   const [order, setOrder] = useState<number[]>(SHOWCASE_ITEMS.map((_, i) => i));
   const [popKey, setPopKey] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const activeItem = SHOWCASE_ITEMS[order[CENTER]];
 
@@ -33,19 +34,57 @@ export default function Showcase() {
     setPopKey((k) => k + 1);
   }, []);
 
+  // Center the scroll container on mobile so the active item is visible
+  useEffect(() => {
+    const centerScroll = (behavior: ScrollBehavior = 'smooth') => {
+      if (scrollRef.current && window.innerWidth <= 900) {
+        const container = scrollRef.current;
+        const centerCard = container.children[CENTER] as HTMLElement;
+        if (centerCard) {
+          centerCard.scrollIntoView({ behavior, inline: 'center', block: 'nearest' });
+        }
+      }
+    };
+    
+    // Sayfa ilk yüklendiğinde düzenin tam oturması için birkaç deneme
+    centerScroll('instant');
+    const t1 = setTimeout(() => centerScroll('instant'), 100);
+    const t2 = setTimeout(() => centerScroll('smooth'), 500);
+    
+    return () => { clearTimeout(t1); clearTimeout(t2); };
+  }, []);
+
+  // Re-center when order changes (e.g. clicking arrows)
+  useEffect(() => {
+    if (scrollRef.current && window.innerWidth <= 900) {
+      const container = scrollRef.current;
+      const centerCard = container.children[CENTER] as HTMLElement;
+      if (centerCard) {
+        // Kart boyutları (transition) değişirken ve bittikten sonra tam merkeze hizala
+        centerCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        
+        const timeout = setTimeout(() => {
+          centerCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        }, 450); // CSS transition 0.4s sürüyor, bittikten sonra son düzeltme
+        
+        return () => clearTimeout(timeout);
+      }
+    }
+  }, [order]);
+
   useEffect(() => {
     const handleHash = (hashVal?: string) => {
       const hash = typeof hashVal === 'string' ? hashVal : window.location.hash.replace('#', '');
       if (!hash) return;
-      
+
       const itemIndex = SHOWCASE_ITEMS.findIndex(item => item.id === hash);
       if (itemIndex !== -1) {
         setOrder((prev) => {
           const slot = prev.indexOf(itemIndex);
           if (slot !== -1 && slot !== CENTER) {
-             const next = [...prev];
-             [next[slot], next[CENTER]] = [next[CENTER], next[slot]];
-             return next;
+            const next = [...prev];
+            [next[slot], next[CENTER]] = [next[CENTER], next[slot]];
+            return next;
           }
           return prev;
         });
@@ -73,9 +112,7 @@ export default function Showcase() {
   return (
     <section className={styles.features} id="features">
       <h2 className={`${styles.featuresTitle} container`}>
-        NOUWEN&apos;DE SENİ
-        <br />
-        NELER BEKLİYOR?
+        NOUWEN&apos;DE SENİ  NELER BEKLİYOR?
       </h2>
 
       <div className={styles.showcase}>
@@ -86,7 +123,7 @@ export default function Showcase() {
         <span className={styles.showcaseBeam} aria-hidden="true" />
 
         {/* gallery cards */}
-        <div className={styles.showcaseCards}>
+        <div className={styles.showcaseCards} ref={scrollRef}>
           {order.map((itemIdx, slot) => {
             const item = SHOWCASE_ITEMS[itemIdx];
             const isFeature = slot === CENTER;

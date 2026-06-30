@@ -1,13 +1,14 @@
 .features {
-  padding-top: clamp(60px, 10vw, 120px);
+  padding-top: clamp(40px, 6vw, 80px);
 }
 
 .featuresTitle {
   font-weight: 900;
-  font-size: clamp(40px, 8.5vw, 128px);
-  line-height: 1.04;
+  font-size: clamp(24px, 6vw, 64px);
+  line-height: 1.1;
   color: var(--blue);
   margin: 0 auto;
+  text-align: center;
   letter-spacing: -0.01em;
 }
 
@@ -157,7 +158,7 @@
     justify-content: flex-start;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding-block: 8px clamp(50px, 12vw, 80px);
+    padding-block: 8px clamp(80px, 15vw, 120px);
     padding-inline: 20px;
     gap: 16px;
     -webkit-overflow-scrolling: touch;
@@ -170,16 +171,22 @@
   .cardC .cardImg { transform: none; }
   .showcaseHill {
     margin-top: clamp(-60px, -9vw, -40px);
-    height: clamp(200px, 30vw, 280px);
+    height: clamp(160px, 25vw, 220px);
+  }
+  .showcaseBeam {
+    bottom: clamp(70px, 12vw, 120px);
   }
 }
 
 @media (max-width: 620px) {
   .cardImg { width: clamp(150px, 56vw, 200px); }
   .cardFeature .cardImg { width: clamp(190px, 68vw, 240px); }
-  .showcaseCards { padding-block: 8px clamp(46px, 15vw, 80px); }
+  .showcaseCards { padding-block: 8px clamp(80px, 20vw, 110px); }
   .showcaseHill {
     margin-top: clamp(-46px, -12vw, -34px);
-    height: clamp(180px, 40vw, 240px);
+    height: clamp(140px, 30vw, 180px);
+  }
+  .showcaseBeam {
+    bottom: clamp(65px, 18vw, 100px);
   }
 }
