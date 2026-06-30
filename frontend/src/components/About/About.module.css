@@ -13,6 +13,42 @@
   transform: scale(0.82, 1.35);
 }
 
+@keyframes spinCW {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinCCW {
+  to { transform: rotate(-360deg); }
+}
+
+.aboutStarLeft, .aboutStarRight {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.aboutStarLeft {
+  top: 10%;
+  left: -2%;
+}
+
+.aboutStarLeft svg {
+  fill: var(--red);
+  width: clamp(50px, 10vw, 120px);
+  animation: spinCW 35s linear infinite;
+}
+
+.aboutStarRight {
+  bottom: 15%;
+  right: -5%;
+}
+
+.aboutStarRight svg {
+  fill: var(--red);
+  width: clamp(70px, 12vw, 160px);
+  animation: spinCCW 45s linear infinite;
+}
+
 .aboutTitle {
   font-weight: 700;
   font-size: clamp(30px, 4.2vw, 60px);
@@ -42,20 +78,18 @@
 .aboutLocation {
   margin: 0;
   font-weight: 500;
-  font-size: clamp(18px, 2.2vw, 28px);
+  font-size: clamp(16px, 2.2vw, 26px);
 }
 
 .animatedSweep {
-  background: linear-gradient(
-    110deg, 
-    var(--blue) 0%, 
-    var(--blue) 30%, 
-    var(--red) 42%, 
-    var(--red-light) 50%, 
-    var(--red) 58%, 
-    var(--blue) 70%, 
-    var(--blue) 100%
-  );
+  background: linear-gradient(110deg,
+      var(--blue) 0%,
+      var(--blue) 30%,
+      var(--red) 42%,
+      var(--red-light) 50%,
+      var(--red) 58%,
+      var(--blue) 70%,
+      var(--blue) 100%);
   background-size: 300% 100%;
   color: transparent;
   -webkit-background-clip: text;
@@ -68,9 +102,11 @@
   0% {
     background-position: 100% center;
   }
+
   50% {
     background-position: 0% center;
   }
+
   100% {
     background-position: 0% center;
   }

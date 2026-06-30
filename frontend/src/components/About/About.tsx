@@ -4,6 +4,20 @@ import styles from './About.module.css';
 export default function About() {
   return (
     <section className={`${styles.about} container`} id="about">
+      {/* Sol Yıldız */}
+      <div className={styles.aboutStarLeft}>
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <use href="#burst" />
+        </svg>
+      </div>
+
+      {/* Sağ Yıldız */}
+      <div className={styles.aboutStarRight}>
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <use href="#burst" />
+        </svg>
+      </div>
+
       <svg className={styles.aboutSpark} viewBox="0 0 100 100" aria-hidden="true">
         <use href="#spark" />
       </svg>
